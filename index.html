@@ -46,13 +46,13 @@
             padding-bottom: 0.5rem;
         }
         
-        /* ESTILOS CLAVE PARA LA IMPRESIÓN (A4) - CORREGIDOS */
+        /* ESTILOS CLAVE PARA LA IMPRESIÓN (A4) - AJUSTADOS PARA AHORRAR ESPACIO */
         @media print {
             body {
                 background-color: white !important;
                 margin: 0;
                 /* Fuente base más pequeña para ayudar al ajuste */
-                font-size: 10pt; 
+                font-size: 9pt; /* REDUCCIÓN CLAVE */
             }
             .cv-container {
                 box-shadow: none;
@@ -62,63 +62,64 @@
                 width: 210mm !important; 
                 min-height: 297mm !important;
                 max-width: 100% !important;
-                /* Usamos flex para mejor control de las columnas en impresión */
                 display: flex;
                 flex-direction: row; 
             }
             .main-content, .sidebar {
-                /* Asegura que el contenido se ajuste y no se desborde */
-                flex-grow: 1; /* Permite que las columnas crezcan */
-                height: auto; /* Altura automática */
+                flex-grow: 1; 
+                height: auto; 
                 box-sizing: border-box;
-                padding-top: 0.75rem !important; /* Reducir padding superior para ahorrar espacio */
-                padding-bottom: 0.75rem !important; /* Reducir padding inferior para ahorrar espacio */
+                padding-top: 0.5rem !important; /* MÁS REDUCCIÓN DE PADDING */
+                padding-bottom: 0.5rem !important; /* MÁS REDUCCIÓN DE PADDING */
             }
             .sidebar {
                 width: 33.3333%; /* 1/3 del ancho */
                 flex-basis: 33.3333%;
+                padding-left: 1rem !important; /* Reducir padding horizontal */
+                padding-right: 1rem !important;
             }
             .main-content {
                 width: 66.6667%; /* 2/3 del ancho */
                 flex-basis: 66.6667%;
+                padding-left: 1rem !important; /* Reducir padding horizontal */
+                padding-right: 1rem !important;
             }
             
             /* Ocultar elementos no deseados */
-            .print-button, .modal-overlay, button.text-xs {
-                display: none !important;
+            .print-button, .modal-overlay, button.text-xs, .text-sm a { 
+                display: none !important; /* Ocultamos links de detalle para ahorrar espacio */
             }
             
-            /* Asegura que los enlaces y títulos se vean bien y el texto principal sea oscuro */
-            a {
-                color: var(--color-primary) !important;
-                text-decoration: underline;
-            }
             /* Mejoora la visibilidad del texto principal en impresión */
             .main-content * {
                 color: #000000 !important;
             }
-            /* El texto del sidebar debe seguir siendo blanco (o claro) para contrastar con el fondo azul */
             .sidebar * {
                 color: #ffffff !important;
             }
-            /* Títulos de experiencia laboral que eran verdes, ahora azules */
             .text-emerald-700 {
                  color: var(--color-primary) !important;
             }
+            
             /* Forzar el tamaño de la fuente para ajustar todo */
-            .text-sm { font-size: 9pt !important; }
+            .text-sm { font-size: 8.5pt !important; } /* AÚN MÁS PEQUEÑO */
             .text-xs { font-size: 7pt !important; }
-            .text-lg { font-size: 11pt !important; }
-            .text-xl { font-size: 14pt !important; }
-            .text-2xl { font-size: 16pt !important; }
-            .text-4xl { font-size: 20pt !important; }
+            .text-lg { font-size: 10pt !important; }
+            .text-xl { font-size: 12pt !important; }
+            .text-2xl { font-size: 14pt !important; }
+            .text-4xl { font-size: 18pt !important; }
             
             /* Ajustar márgenes internos y espaciado */
             .p-8 { padding: 0.75rem !important; }
-            .mb-8 { margin-bottom: 0.5rem !important; }
-            .space-y-6 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.5rem !important; }
+            .mb-8 { margin-bottom: 0.4rem !important; } /* Más reducción */
+            .space-y-6 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.3rem !important; } /* Más reducción */
             .space-y-4 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.3rem !important; }
-            .mt-4 { margin-top: 0.5rem !important; }
+            .mt-4 { margin-top: 0.4rem !important; }
+            
+            /* Ajuste específico para la lista de experiencia laboral */
+            .list-disc li {
+                margin-bottom: 0.1rem !important; /* Separación mínima entre puntos de lista */
+            }
         }
 
         .icon-text {
@@ -185,9 +186,8 @@
 <div class="cv-container grid md:grid-cols-3">
     <!-- COLUMNA IZQUIERDA (Sidebar) -->
     <div class="sidebar p-8 md:col-span-1 flex flex-col items-center text-center">
-        <!-- Foto de Perfil (ACTUALIZADO: Usamos h-40 w-40 para un tamaño más profesional y nítido) -->
+        <!-- Foto de Perfil -->
         <div class="mb-6 w-40 h-40 rounded-full overflow-hidden border-4 border-white shadow-xl">
-            <!-- RUTA DIRECTA DE DRIVE INCORPORADA (Se usa s400 para una mejor resolución en el tamaño 160x160) -->
             <img 
                 id="profile-picture"
                 src="https://lh3.googleusercontent.com/d/14mni0pdG3OFoMwM6NtexjUotewrSsFsk=s400" 
@@ -196,7 +196,6 @@
                 onerror="this.onerror=null; this.src='https://placehold.co/160x160/ffffff/003366?text=CS';"
             >
         </div>
-        <!-- ELIMINADO: Botón para cambiar la foto de perfil -->
 
         <!-- Contacto -->
         <h2 class="text-xl font-bold mb-4 border-b border-white pb-2 w-full">Contacto</h2>
@@ -217,7 +216,7 @@
                 <i data-lucide="calendar" class="w-4 h-4"></i>
                 <span>42 años</span>
             </div>
-            <!-- Links adicionales (LinkedIn ACTUALIZADO) -->
+            <!-- Links adicionales -->
             <div class="icon-text pt-2">
                 <i data-lucide="linkedin" class="w-4 h-4"></i>
                 <a href="https://www.linkedin.com/in/cristian-ivan-sanchez-8736032b1" target="_blank" class="hover:underline">Perfil de LinkedIn</a>
@@ -286,14 +285,16 @@
         <!-- Título Principal -->
         <header class="mb-8">
             <h1 class="text-4xl font-extrabold text-gray-900">CRISTIAN IVAN SANCHEZ</h1>
-            <p class="text-xl font-medium text-gray-600 mt-1">Líder de Estrategia de Datos, Coordinación de Equipos y Transformación Digital Pública</p>
+            <!-- REDUCIDO EL TAMAÑO DE LA DESCRIPCIÓN para ahorrar espacio en A4 -->
+            <p class="text-lg font-medium text-gray-600 mt-1">Líder de Estrategia de Datos, Coordinación de Equipos y Transformación Digital Pública</p>
         </header>
 
         <!-- Resumen Profesional -->
         <div class="mb-8">
             <h2 class="text-2xl font-semibold section-title">Resumen Profesional</h2>
-            <p class="mt-4 text-justify">
-                **Líder y Coordinador de la Estrategia de Datos** en la Municipalidad de San Miguel de Tucumán, con experiencia probada en la **creación y despliegue de políticas data-driven y la coordinación de equipos (32 gerentes)**. Sólida base en Educación y TIC, complementada con una doble especialización en Ciencia de Datos e IA para el sector público. Experto en **Power BI**, Python, y bases de datos (**MySQL**), enfocado en la **transformación digital y la optimización de procesos estatales** para generar valor innovador y alto impacto.
+            <!-- AJUSTADO EL TAMAÑO DEL TEXTO y simplificadas las frases para encajar en A4 -->
+            <p class="mt-4 text-justify text-sm">
+                **Líder y Coordinador de la Estrategia de Datos** en la Municipalidad de San Miguel de Tucumán. Experiencia en la **creación de políticas data-driven y coordinación de equipos (32 gerentes)**. Sólida base en Educación y TIC, con doble especialización en Ciencia de Datos e IA para el sector público. Experto en **Power BI**, Python y **MySQL**, enfocado en la **transformación digital y optimización de procesos estatales**.
             </p>
         </div>
 
@@ -303,30 +304,30 @@
             <div class="mt-4 space-y-4">
 
                 <!-- Especialización 1 -->
-                <div class="flex flex-col sm:flex-row justify-between items-start border-l-4 border-yellow-500 pl-3 py-1">
+                <div class="flex flex-col sm:flex-row justify-between items-start border-l-4 border-yellow-500 pl-3 py-1 text-sm">
                     <div>
                         <h3 class="font-bold text-lg">Especialización en Inteligencia Artificial en la Gestión Pública</h3>
-                        <p class="text-gray-600">Instituto Superior de la Carrera (ISC), Gobierno de la Ciudad de Buenos Aires</p>
+                        <p class="text-gray-600">ISC, Gobierno de la Ciudad de Buenos Aires</p>
                         <p class="text-sm text-gray-500">Abril - Agosto 2025</p>
                     </div>
-                    <button onclick="showDetails('ia_pub')" class="mt-2 sm:mt-0 text-xs font-semibold px-3 py-1 rounded-full text-white bg-green-600 hover:bg-green-700 transition">Ver Detalles</button>
+                    <button onclick="showDetails('ia_pub')" class="mt-2 sm:mt-0 text-xs font-semibold px-3 py-1 rounded-full text-white bg-green-600 hover:bg-green-700 transition">Ver Certificado</button>
                 </div>
 
                 <!-- Especialización 2 -->
-                <div class="flex flex-col sm:flex-row justify-between items-start border-l-4 border-yellow-500 pl-3 py-1">
+                <div class="flex flex-col sm:flex-row justify-between items-start border-l-4 border-yellow-500 pl-3 py-1 text-sm">
                     <div>
                         <h3 class="font-bold text-lg">Especialización en Gestión Pública y Datos</h3>
-                        <p class="text-gray-600">Instituto Superior de la Carrera (ISC), Gobierno de la Ciudad de Buenos Aires</p>
+                        <p class="text-gray-600">ISC, Gobierno de la Ciudad de Buenos Aires</p>
                         <p class="text-sm text-gray-500">Abril - Agosto 2025</p>
                     </div>
-                     <button onclick="showDetails('gestion_datos')" class="mt-2 sm:mt-0 text-xs font-semibold px-3 py-1 rounded-full text-white bg-green-600 hover:bg-green-700 transition">Ver Detalles</button>
+                     <button onclick="showDetails('gestion_datos')" class="mt-2 sm:mt-0 text-xs font-semibold px-3 py-1 rounded-full text-white bg-green-600 hover:bg-green-700 transition">Ver Certificado</button>
                 </div>
                 
                 <!-- Título Universitario -->
-                <div class="flex flex-col sm:flex-row justify-between items-start">
+                <div class="flex flex-col sm:flex-row justify-between items-start text-sm">
                     <div>
                         <h3 class="font-bold text-lg">Profesor de Matemáticas</h3>
-                        <p class="text-gray-600">I.E.S. Lola Mora, San Miguel de Tucumán</p>
+                        <p class="text-gray-600">I.E.S. Lola Mora, Tucumán</p>
                         <p class="text-sm text-gray-500">2010</p>
                     </div>
                 </div>
@@ -336,44 +337,39 @@
         <!-- Cursos y Seminarios Relevantes (Enfoque en Datos/IA) -->
         <div class="mb-8">
             <h2 class="text-2xl font-semibold section-title">Capacitaciones Clave en Data & IA</h2>
-            <div class="mt-4 space-y-3 text-sm">
+            <!-- AJUSTADO ESPACIADO PARA SER MÁS COMPACTO -->
+            <div class="mt-4 space-y-2 text-sm"> 
                 
                 <!-- Diplomatura Módulo 2 -->
                 <div class="border-l-2 border-gray-300 pl-3">
                     <p class="font-medium">Módulo II: Programación con Python para la Ciencia de Datos (Aprobado)</p>
-                    <p class="text-gray-600">Diplomatura en Ciencia de Datos Organizacionales - UNT</p>
-                    <p class="text-gray-500 text-xs">Reciente Aprobación</p>
+                    <p class="text-gray-600 text-xs">Diplomatura en Ciencia de Datos Organizacionales - UNT</p>
                 </div>
 
                 <!-- Diplomatura Módulo 1 -->
                 <div class="border-l-2 border-gray-300 pl-3">
                     <p class="font-medium">Módulo I: Herramientas Estadísticas para la Ciencia de Datos (40 hs)</p>
-                    <p class="text-gray-600">Diplomatura en Ciencia de Datos Organizacionales - UNT (Nota: 9/10)</p>
-                    <p class="text-gray-500 text-xs">Agosto 2025</p>
+                    <p class="text-gray-600 text-xs">Diplomatura en Ciencia de Datos Organizacionales - UNT (Nota: 9/10)</p>
                 </div>
                 
                 <!-- Curso INAP 1 -->
                  <div class="border-l-2 border-gray-300 pl-3">
                     <p class="font-medium">Big Data y Gobierno (Plan Federal)</p>
-                    <p class="text-gray-600">Instituto Nacional de la Administración Pública (INAP) - 12 hs</p>
-                    <p class="text-gray-500 text-xs">Septiembre 2023</p>
+                    <p class="text-gray-600 text-xs">INAP - 12 hs</p>
                 </div>
                 
                 <!-- Curso INAP 2 -->
                  <div class="border-l-2 border-gray-300 pl-3">
                     <p class="font-medium">Introducción a la Ciencia de Datos (Nivel 1)</p>
-                    <p class="text-gray-600">Instituto Nacional de la Administración Pública (INAP) - 12 hs</p>
-                    <p class="text-gray-500 text-xs">Septiembre 2023</p>
+                    <p class="text-gray-600 text-xs">INAP - 12 hs</p>
                 </div>
 
                 <!-- Seminarios -->
                 <div class="border-l-2 border-gray-300 pl-3">
                     <p class="font-medium">Seminario: IA y Democracia (ISC)</p>
-                    <p class="text-gray-500 text-xs">Agosto 2025</p>
                 </div>
                 <div class="border-l-2 border-gray-300 pl-3">
                     <p class="font-medium">Seminario: Datos y Elecciones (ISC)</p>
-                    <p class="text-gray-500 text-xs">Julio 2025</p>
                 </div>
             </div>
         </div>
@@ -381,20 +377,22 @@
         <!-- Experiencia Laboral -->
         <div class="mb-8">
             <h2 class="text-2xl font-semibold section-title">Experiencia Laboral</h2>
-            <div class="mt-4 space-y-6">
+            <!-- AJUSTADO ESPACIADO PARA SER MÁS COMPACTO -->
+            <div class="mt-4 space-y-4"> 
                 
                 <!-- Puesto 2: Cargo Actual (Gerente de Datos) -->
-                <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-emerald-500">
+                <div class="bg-gray-50 p-3 rounded-lg border-l-4 border-emerald-500"> <!-- REDUCIDO PADDING INTERNO a p-3 -->
                     <div class="flex justify-between items-baseline">
                         <h3 class="font-bold text-lg text-emerald-700">Coordinador y Gerente de Datos</h3>
                         <span class="text-sm font-semibold text-gray-500">Actualidad</span>
                     </div>
-                    <p class="text-gray-600 italic mb-2">Dirección de Gerencia de Datos | Municipalidad de San Miguel de Tucumán</p>
-                    <ul class="list-disc list-inside mt-2 space-y-1 text-sm">
-                        <li>Responsable directo de la **creación e implementación de la Estrategia de Datos** de la Municipalidad, sentando las bases para la gobernanza de datos a nivel local.</li>
-                        <li>Lidero y coordino un equipo de **32 Gerentes de Datos** de diversas áreas, impulsando la cultura *data-driven* en toda la administración pública.</li>
-                        <li>Diseño y construyo **paneles de control (dashboards) en Power BI** para la publicación de datos abiertos de la ciudad. <a href="https://smtendatos.gob.ar/" target="_blank" class="text-blue-500 hover:text-blue-700 underline font-medium">Ver sitio: smtendatos.gob.ar</a>.</li>
-                        <li>Proveo **soporte técnico y mantenimiento a la base de datos central en MySQL** para asegurar la integridad y accesibilidad de la información.</li>
+                    <!-- REDUCIDO EL TAMAÑO DE LA DESCRIPCIÓN INTERNA -->
+                    <p class="text-gray-600 italic mb-1 text-sm">Dirección de Gerencia de Datos | Municipalidad de San Miguel de Tucumán</p>
+                    <ul class="list-disc list-inside mt-2 space-y-0.5 text-sm"> <!-- REDUCIDO ESPACIADO EN LA LISTA -->
+                        <li>Responsable de la **creación e implementación de la Estrategia de Datos** de la Municipalidad, impulsando la gobernanza local.</li>
+                        <li>Lidero y coordino un equipo de **32 Gerentes de Datos**, fomentando la cultura *data-driven* en la administración pública.</li>
+                        <li>Diseño **paneles de control (dashboards) en Power BI** para la publicación de datos abiertos. <a href="https://smtendatos.gob.ar/" target="_blank" class="text-blue-500 hover:text-blue-700 underline font-medium">Ver sitio</a>.</li>
+                        <li>Soporte técnico y mantenimiento a la **base de datos central en MySQL** para asegurar la integridad de la información.</li>
                     </ul>
                 </div>
 
@@ -404,11 +402,11 @@
                         <h3 class="font-bold text-lg text-gray-800">Capacitador / Coordinador de Proyectos TIC</h3>
                         <span class="text-sm font-semibold text-gray-500">2012 — 2015</span>
                     </div>
-                    <p class="text-gray-600 italic">Coordinación TIC Tucumán | Ministerio de Educación - Tucumán</p>
-                    <ul class="list-disc list-inside mt-2 space-y-1 text-sm">
-                        <li>Lideré la **capacitación masiva de docentes** en el uso de herramientas TIC y dispositivos del programa Conectar Igualdad y Secundaria 2.0.</li>
-                        <li>Diseñé e implementé proyectos de innovación educativa, incluyendo el uso de **Realidad Aumentada** y plataformas de programación (Pilas Bloques, Arduino), promoviendo la alfabetización digital.</li>
-                        <li>Brindé apoyo técnico y metodológico a equipos directivos y docentes, contribuyendo a la integración exitosa de la tecnología en el currículo.</li>
+                    <p class="text-gray-600 italic text-sm">Coordinación TIC Tucumán | Ministerio de Educación - Tucumán</p>
+                    <ul class="list-disc list-inside mt-2 space-y-0.5 text-sm">
+                        <li>Lideré la **capacitación masiva de docentes** en el uso de herramientas TIC (Conectar Igualdad y Secundaria 2.0).</li>
+                        <li>Diseñé e implementé proyectos de innovación educativa (Realidad Aumentada, Pilas Bloques, Arduino).</li>
+                        <li>Brindé apoyo técnico y metodológico a equipos directivos, integrando exitosamente la tecnología en el currículo.</li>
                     </ul>
                 </div>
 
