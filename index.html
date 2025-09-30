@@ -185,15 +185,15 @@
 <div class="cv-container grid md:grid-cols-3">
     <!-- COLUMNA IZQUIERDA (Sidebar) -->
     <div class="sidebar p-8 md:col-span-1 flex flex-col items-center text-center">
-        <!-- Foto de Perfil (ACTUALIZADO con URL de Drive) -->
-        <div class="mb-6 w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-xl">
-            <!-- RUTA DIRECTA DE DRIVE INCORPORADA -->
+        <!-- Foto de Perfil (ACTUALIZADO: Usamos h-40 w-40 para un tamaño más profesional y nítido) -->
+        <div class="mb-6 w-40 h-40 rounded-full overflow-hidden border-4 border-white shadow-xl">
+            <!-- RUTA DIRECTA DE DRIVE INCORPORADA (Se usa s400 para una mejor resolución en el tamaño 160x160) -->
             <img 
                 id="profile-picture"
-                src="https://lh3.googleusercontent.com/d/14mni0pdG3OFoMwM6NtexjUotewrSsFsk=s220" 
+                src="https://lh3.googleusercontent.com/d/14mni0pdG3OFoMwM6NtexjUotewrSsFsk=s400" 
                 alt="Foto de Perfil de Cristian Sanchez" 
                 class="w-full h-full object-cover"
-                onerror="this.onerror=null; this.src='https://placehold.co/128x128/ffffff/003366?text=CS';"
+                onerror="this.onerror=null; this.src='https://placehold.co/160x160/ffffff/003366?text=CS';"
             >
         </div>
         <!-- ELIMINADO: Botón para cambiar la foto de perfil -->
@@ -211,7 +211,7 @@
             </div>
             <div class="icon-text">
                 <i data-lucide="map-pin" class="w-4 h-4"></i>
-                <span>Tafi Viejo, Tucumán, Argentina</span>
+                <span>Tucumán, Argentina</span>
             </div>
             <div class="icon-text">
                 <i data-lucide="calendar" class="w-4 h-4"></i>
@@ -448,7 +448,6 @@
     lucide.createIcons();
 
     // Variable global para almacenar las URLs de Drive
-    // Se han conservado los links de Drive para los certificados del modal
     let driveLinks = {
         'ia_pub': 'https://drive.google.com/file/d/1TJz9u55PqQt0na7aBVxqkYbNbwjQdaOH/view?usp=drive_link',         
         'gestion_datos': 'https://drive.google.com/file/d/1G5JL5LMPackxIxwn1rdECrbPdh2KCjG6/view?usp=drive_link', 
