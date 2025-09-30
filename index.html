@@ -46,79 +46,79 @@
             padding-bottom: 0.5rem;
         }
         
-        /* ESTILOS CLAVE PARA LA IMPRESIÓN (A4) - AJUSTADOS PARA AHORRAR ESPACIO */
+        /* ESTILOS CLAVE PARA LA IMPRESIÓN (A4) - AJUSTES MÁS AGRESIVOS */
         @media print {
             body {
                 background-color: white !important;
                 margin: 0;
-                /* Fuente base más pequeña para ayudar al ajuste */
-                font-size: 9pt; /* REDUCCIÓN CLAVE */
+                /* Fuente base muy pequeña para asegurar el ajuste */
+                font-size: 8.5pt; /* AJUSTE CRÍTICO: Fuente más pequeña */
             }
             .cv-container {
                 box-shadow: none;
                 margin: 0;
                 border-radius: 0;
-                /* Establecer tamaño A4 y asegurar que no se corte */
+                /* Forzar tamaño A4 */
                 width: 210mm !important; 
                 min-height: 297mm !important;
                 max-width: 100% !important;
                 display: flex;
                 flex-direction: row; 
             }
+            
+            /* Reducción drástica de padding en columnas */
             .main-content, .sidebar {
                 flex-grow: 1; 
                 height: auto; 
                 box-sizing: border-box;
-                padding-top: 0.5rem !important; /* MÁS REDUCCIÓN DE PADDING */
-                padding-bottom: 0.5rem !important; /* MÁS REDUCCIÓN DE PADDING */
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important; 
             }
+            
+            /* Ajuste de ancho de columnas */
             .sidebar {
-                width: 33.3333%; /* 1/3 del ancho */
+                width: 33.3333%; 
                 flex-basis: 33.3333%;
-                padding-left: 1rem !important; /* Reducir padding horizontal */
-                padding-right: 1rem !important;
+                padding-left: 0.75rem !important; /* Reducir padding horizontal */
+                padding-right: 0.75rem !important;
             }
             .main-content {
-                width: 66.6667%; /* 2/3 del ancho */
+                width: 66.6667%; 
                 flex-basis: 66.6667%;
-                padding-left: 1rem !important; /* Reducir padding horizontal */
-                padding-right: 1rem !important;
+                padding-left: 0.75rem !important; /* Reducir padding horizontal */
+                padding-right: 0.75rem !important;
             }
             
             /* Ocultar elementos no deseados */
             .print-button, .modal-overlay, button.text-xs, .text-sm a { 
-                display: none !important; /* Ocultamos links de detalle para ahorrar espacio */
-            }
-            
-            /* Mejoora la visibilidad del texto principal en impresión */
-            .main-content * {
-                color: #000000 !important;
-            }
-            .sidebar * {
-                color: #ffffff !important;
-            }
-            .text-emerald-700 {
-                 color: var(--color-primary) !important;
+                display: none !important; 
             }
             
             /* Forzar el tamaño de la fuente para ajustar todo */
-            .text-sm { font-size: 8.5pt !important; } /* AÚN MÁS PEQUEÑO */
+            .text-sm { font-size: 8pt !important; } 
             .text-xs { font-size: 7pt !important; }
-            .text-lg { font-size: 10pt !important; }
-            .text-xl { font-size: 12pt !important; }
-            .text-2xl { font-size: 14pt !important; }
-            .text-4xl { font-size: 18pt !important; }
+            .text-lg { font-size: 9.5pt !important; }
+            .text-xl { font-size: 11pt !important; }
+            .text-2xl { font-size: 13pt !important; }
+            .text-4xl { font-size: 17pt !important; }
             
-            /* Ajustar márgenes internos y espaciado */
-            .p-8 { padding: 0.75rem !important; }
-            .mb-8 { margin-bottom: 0.4rem !important; } /* Más reducción */
-            .space-y-6 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.3rem !important; } /* Más reducción */
-            .space-y-4 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.3rem !important; }
-            .mt-4 { margin-top: 0.4rem !important; }
+            /* Ajustar márgenes internos y espaciado - MÁXIMA COMPRESIÓN */
+            .p-8 { padding: 0.75rem !important; } /* Padding de la columna principal */
+            .mb-8 { margin-bottom: 0.3rem !important; } /* Más reducción */
+            .space-y-6 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.2rem !important; } /* Mínimo espacio entre elementos */
+            .space-y-4 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.2rem !important; }
+            .space-y-3 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.2rem !important; } /* Nuevo: Reducción en Contacto */
+            .mt-4 { margin-top: 0.3rem !important; }
             
             /* Ajuste específico para la lista de experiencia laboral */
             .list-disc li {
-                margin-bottom: 0.1rem !important; /* Separación mínima entre puntos de lista */
+                margin-bottom: 0.1rem !important; 
+            }
+            
+            /* Asegurar que el título de la sección tenga margen */
+            .section-title {
+                margin-bottom: 0.3rem !important;
+                padding-bottom: 0.2rem !important;
             }
         }
 
@@ -285,16 +285,14 @@
         <!-- Título Principal -->
         <header class="mb-8">
             <h1 class="text-4xl font-extrabold text-gray-900">CRISTIAN IVAN SANCHEZ</h1>
-            <!-- REDUCIDO EL TAMAÑO DE LA DESCRIPCIÓN para ahorrar espacio en A4 -->
             <p class="text-lg font-medium text-gray-600 mt-1">Líder de Estrategia de Datos, Coordinación de Equipos y Transformación Digital Pública</p>
         </header>
 
         <!-- Resumen Profesional -->
         <div class="mb-8">
             <h2 class="text-2xl font-semibold section-title">Resumen Profesional</h2>
-            <!-- AJUSTADO EL TAMAÑO DEL TEXTO y simplificadas las frases para encajar en A4 -->
             <p class="mt-4 text-justify text-sm">
-                **Líder y Coordinador de la Estrategia de Datos** en la Municipalidad de San Miguel de Tucumán. Experiencia en la **creación de políticas data-driven y coordinación de equipos (32 gerentes)**. Sólida base en Educación y TIC, con doble especialización en Ciencia de Datos e IA para el sector público. Experto en **Power BI**, Python y **MySQL**, enfocado en la **transformación digital y optimización de procesos estatales**.
+                **Líder y Coordinador de la Estrategia de Datos** en la Municipalidad de San Miguel de Tucumán. Experiencia en la **creación de políticas data-driven y coordinación de equipos (32 gerentes)**. Sólida base en Educación y TIC, con doble especialización en Ciencia de Datos e IA para el sector público. Experto en **Power BI**, Python y **MySQL**, enfocado en la **transformación digital y optimización de procesos estatales** para generar valor innovador y alto impacto.
             </p>
         </div>
 
@@ -337,7 +335,7 @@
         <!-- Cursos y Seminarios Relevantes (Enfoque en Datos/IA) -->
         <div class="mb-8">
             <h2 class="text-2xl font-semibold section-title">Capacitaciones Clave en Data & IA</h2>
-            <!-- AJUSTADO ESPACIADO PARA SER MÁS COMPACTO -->
+            <!-- ESPACIADO MÁS COMPACTO: space-y-2 -->
             <div class="mt-4 space-y-2 text-sm"> 
                 
                 <!-- Diplomatura Módulo 2 -->
@@ -377,18 +375,17 @@
         <!-- Experiencia Laboral -->
         <div class="mb-8">
             <h2 class="text-2xl font-semibold section-title">Experiencia Laboral</h2>
-            <!-- AJUSTADO ESPACIADO PARA SER MÁS COMPACTO -->
+            <!-- ESPACIADO MÁS COMPACTO: space-y-4 -->
             <div class="mt-4 space-y-4"> 
                 
                 <!-- Puesto 2: Cargo Actual (Gerente de Datos) -->
-                <div class="bg-gray-50 p-3 rounded-lg border-l-4 border-emerald-500"> <!-- REDUCIDO PADDING INTERNO a p-3 -->
+                <div class="bg-gray-50 p-3 rounded-lg border-l-4 border-emerald-500"> 
                     <div class="flex justify-between items-baseline">
                         <h3 class="font-bold text-lg text-emerald-700">Coordinador y Gerente de Datos</h3>
                         <span class="text-sm font-semibold text-gray-500">Actualidad</span>
                     </div>
-                    <!-- REDUCIDO EL TAMAÑO DE LA DESCRIPCIÓN INTERNA -->
                     <p class="text-gray-600 italic mb-1 text-sm">Dirección de Gerencia de Datos | Municipalidad de San Miguel de Tucumán</p>
-                    <ul class="list-disc list-inside mt-2 space-y-0.5 text-sm"> <!-- REDUCIDO ESPACIADO EN LA LISTA -->
+                    <ul class="list-disc list-inside mt-2 space-y-0.5 text-sm">
                         <li>Responsable de la **creación e implementación de la Estrategia de Datos** de la Municipalidad, impulsando la gobernanza local.</li>
                         <li>Lidero y coordino un equipo de **32 Gerentes de Datos**, fomentando la cultura *data-driven* en la administración pública.</li>
                         <li>Diseño **paneles de control (dashboards) en Power BI** para la publicación de datos abiertos. <a href="https://smtendatos.gob.ar/" target="_blank" class="text-blue-500 hover:text-blue-700 underline font-medium">Ver sitio</a>.</li>
